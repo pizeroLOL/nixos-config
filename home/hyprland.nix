@@ -1,29 +1,30 @@
-{ pkgs, ... }:
+{
+  #pkgs,
+  ...
+}:
 {
   # wayland.windowManager.hyprland.enable = true;
-  home.pointerCursor = {
-    gtk.enable = true;
-    # x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 16;
-  };
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   # x11.enable = true;
+  #   size = 16;
+  # };
 
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
-    };
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     package = pkgs.kdePackages.breeze-gtk;
+  #     name = "Breeze";
+  #   };
 
-    iconTheme = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
-    };
+  #   iconTheme = {
+  #     package = pkgs.kdePackages.breeze-icons;
+  #     name = "Breeze";
+  #   };
 
-    font = {
-      name = "Noto Sans CJK SC";
-      size = 12;
-    };
-  };
+  #   font = {
+  #     name = "Noto Sans CJK SC";
+  #     size = 12;
+  #   };
+  # };
 }
