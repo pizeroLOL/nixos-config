@@ -64,15 +64,17 @@
     git
     polkit
     polkit_gnome
-    temurin-bin-21
-    # temurin-bin-11
-    temurin-bin-8
     adwaita-qt
     adwaita-qt6
     libsForQt5.qt5ct
     trash-cli
     flatpak
     gnome.gnome-software
+
+    # MC，hm 管不好默认 jdk
+    temurin-bin-21
+    # temurin-bin-11
+    temurin-bin-8
   ];
 
   services.flatpak.enable = true;
@@ -115,6 +117,17 @@
       fcitx5-gtk
       fcitx5-chinese-addons
     ];
+  };
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+    ];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
   };
 
   # 桌面前置-xserver

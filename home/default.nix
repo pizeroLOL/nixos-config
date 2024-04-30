@@ -12,6 +12,30 @@
     # 聊天
     qq
 
+    # 文档
+    libreoffice-fresh
+
+    # 游戏
+    hmcl
+    steam
+
+    # 性能监看
+    btop
+    htop
+    iotop # io monitoring
+    iftop # network monitoring
+
+    # 桌面
+    rofi-wayland
+    waybar
+    grim
+    hyprpaper
+    libsForQt5.kdeconnect-kde
+    flatpak
+
+    # 终端
+    alacritty
+
     # 代码编辑器
     vscode.fhs
     vscodium.fhs
@@ -19,24 +43,19 @@
     neovim
     helix
 
-    # nix 开发全家桶
+    # nix
     nixd
     nixfmt-rfc-style
     nix-output-monitor
 
-    # 整活
+    # rust
     rustc
     cargo
 
-    # 摸鱼工具
+    # cmd
     tree
     fzf
     eza
-    python3
-
-    # 游戏
-    hmcl
-    steam
 
     # 压缩工具
     zstd
@@ -52,22 +71,12 @@
     nmap # A utility for network discovery and security auditing
     ipcalc # it is a calculator for the IPv4/v6 addresses
 
-    # 性能监看
-    btop
-    htop
-    iotop # io monitoring
-    iftop # network monitoring
+    # 视频工具
+    ffmpeg
+    vlc
 
-    # 终端
-    alacritty
-
-    # 桌面
-    rofi-wayland
-    waybar
-    grim
-    hyprpaper
-    libsForQt5.kdeconnect-kde
-    flatpak
+    # python
+    python3
   ];
   imports = [ ./hyprland.nix ];
 }
