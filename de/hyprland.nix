@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{
   # 桌面
   programs.hyprland.enable = true;
 

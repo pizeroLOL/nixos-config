@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.home-manager.enable = true;
   home.username = "pizero";
   home.homeDirectory = "/home/pizero";
@@ -69,7 +70,4 @@
     flatpak
   ];
   imports = [ ./hyprland.nix ];
-
-
-
 }

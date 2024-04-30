@@ -59,37 +59,44 @@
   # These examples all use "x86_64-linux" as the system.
   # Please see the c-hello template for an example of how to handle multiple systems.
 
-  outputs = all@{ self, nixpkgs, home-manager, ... }: {
-    # Used with `nixos-rebuild --flake .#<hostname>`
-    # nixosConfigurations."<hostname>".config.system.build.toplevel must be a derivation
-    # nixosConfigurations = {
-    nixosConfigurations."nixos-test" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [{ boot.isContainer = true; }];
-    };
-    nixosConfigurations."nixos-to-go" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/nixos-to-go/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.pizero = import ./home/default.nix;
-          home-manager.backupFileExtension = "backup";
-          # Optionally, use home-manager.extraSpecialArgs to pass
-          # arguments to home.nix
-        }
-      ];
-    };
-    # };
-    # Utilized by `nix develop .#<name>`
-    devShells.x86_64-linux.example = self.devShell.x86_64-linux;
+  outputs =
+    all@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    {
+      # Used with `nixos-rebuild --flake .#<hostname>`
+      # nixosConfigurations."<hostname>".config.system.build.toplevel must be a derivation
+      # nixosConfigurations = {
+      nixosConfigurations."nixos-test" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ { boot.isContainer = true; } ];
+      };
+      nixosConfigurations."nixos-to-go" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/nixos-to-go/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.pizero = import ./home/default.nix;
+            home-manager.backupFileExtension = "backup";
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+        ];
+      };
+      # };
+      # Utilized by `nix develop .#<name>`
+      devShells.x86_64-linux.example = self.devShell.x86_64-linux;
 
-    # Utilized by Hydra build jobs
-    hydraJobs.example.x86_64-linux = self.defaultPackage.x86_64-linux;
+      # Utilized by Hydra build jobs
+      hydraJobs.example.x86_64-linux = self.defaultPackage.x86_64-linux;
 
-    # Utilized by `nix flake init -t <flake>#<name>`
-    #templates.example = self.defaultTemplate;
-  };
+      # Utilized by `nix flake init -t <flake>#<name>`
+      #templates.example = self.defaultTemplate;
+    };
 }

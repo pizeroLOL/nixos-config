@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }:
+{
   # wayland.windowManager.hyprland.enable = true;
   home.pointerCursor = {
     gtk.enable = true;
@@ -25,4 +26,4 @@
       size = 12;
     };
   };
- }
+}
