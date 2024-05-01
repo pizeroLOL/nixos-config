@@ -59,7 +59,14 @@
   # 时间
   time.timeZone = "Asia/Shanghai";
 
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
+    autoNumlock = true;
+  };
 
   # 用户，别忘了设置密码
   users.users.pizero = {
