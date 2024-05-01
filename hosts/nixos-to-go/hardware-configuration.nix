@@ -77,6 +77,14 @@
       "compress=zstd"
     ];
   };
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/88d6dcb3-b98f-4e18-bc2a-7dafbc17a75a";
+    fsType = "btrfs";
+    options = [
+      "subvol=@data"
+      "discard=async"
+    ];
+  };
 
   swapDevices = [ { device = "/dev/disk/by-uuid/483bf3f2-8dfb-4ea7-a207-404a11b9e8c9"; } ];
 
