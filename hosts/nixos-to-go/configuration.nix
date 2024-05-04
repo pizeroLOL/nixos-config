@@ -75,6 +75,10 @@
       temurin-bin-21
       # temurin-bin-11
       temurin-bin-8
+
+      # wine
+      winetricks
+      wineWowPackages.staging
     ]
   );
   # ++ [
