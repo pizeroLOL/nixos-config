@@ -6,6 +6,9 @@
   # inputs.nixpkgsGitHubBranch.url =
   #   "git+https://github.com/NixOS/nixpkgs?ref=nixos-23.11";
   inputs.nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/?ref=nixos-23.11";
+
+  inputs.nur.url = "github:nix-community/NUR";
+
   # nixpkgs.url = "git+https://hub.nuaa.cf/nixpkgs?ref=/nixos-23.11";
   inputs.home-manager.url = "git+https://hub.nuaa.cf/nix-community/home-manager";
   # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -53,15 +56,10 @@
   inputs.dwarffs.url = "dwarffs";
   inputs.dwarffs.inputs.nixpkgs.follows = "nixpkgs";
 
-  # For more information about well-known outputs checked by `nix flake check`:
-  # https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-flake-check.html#evaluation-checks
-
-  # These examples all use "x86_64-linux" as the system.
-  # Please see the c-hello template for an example of how to handle multiple systems.
-
   outputs =
     all@{
       self,
+      # nur,
       nixpkgs,
       home-manager,
       ...
@@ -77,6 +75,7 @@
       nixosConfigurations."nixos-to-go" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          # nur.nixosModules.nur
           ./hosts/nixos-to-go/configuration.nix
           home-manager.nixosModules.home-manager
           {

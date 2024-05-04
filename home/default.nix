@@ -1,5 +1,12 @@
-{ pkgs, ... }:
 {
+  # config,
+  # nur,
+  pkgs,
+  ...
+}:
+{
+  # imports = [ nur.hmModules.nur ];
+
   programs.home-manager.enable = true;
   home.username = "pizero";
   home.homeDirectory = "/home/pizero";
@@ -11,9 +18,19 @@
 
     # 聊天
     qq
+    feishu
 
     # 文档
     libreoffice-fresh
+
+    # 图片
+    gimp-with-plugins
+
+    # OCR
+    gImageReader
+
+    # 建模
+    blender
 
     # 游戏
     hmcl
@@ -24,6 +41,7 @@
     htop
     iotop # io monitoring
     iftop # network monitoring
+    nvitop
 
     # 桌面
     rofi-wayland
@@ -34,6 +52,7 @@
     flatpak
 
     # 终端
+    kdePackages.yakuake
     alacritty
 
     # 代码编辑器
@@ -47,6 +66,9 @@
     nixd
     nixfmt-rfc-style
     nix-output-monitor
+
+    # python
+    python3
 
     # rust
     rustc
@@ -74,9 +96,11 @@
     # 视频工具
     ffmpeg
     vlc
+    obs-studio
+    kdePackages.kdenlive
 
-    # python
-    python3
+    # 虚拟机
+    virtualbox
+    virt-manager
   ];
-  imports = [ ./hyprland.nix ];
 }
