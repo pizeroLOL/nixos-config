@@ -215,21 +215,6 @@
         "url": "https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/"
       }
     },
-    "nur": {
-      "locked": {
-        "lastModified": 1714568100,
-        "narHash": "sha256-qdCdeo2ZBIPEi3jQRd9ed/hO4gZTx+2h2N6WqiYBl4s=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "67ff7c2201dba1268c376a7fab36b330a5e664ab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "NUR",
-        "type": "github"
-      }
-    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -260,8 +245,7 @@
         "dwarffs": "dwarffs",
         "home-manager": "home-manager",
         "nixops": "nixops",
-        "nixpkgs": "nixpkgs_3",
-        "nur": "nur"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "systems": {

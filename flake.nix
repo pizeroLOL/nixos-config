@@ -7,7 +7,7 @@
   #   "git+https://github.com/NixOS/nixpkgs?ref=nixos-23.11";
   inputs.nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/?ref=staging-next";
 
-  inputs.nur.url = "github:nix-community/NUR";
+  # inputs.nur.url = "github:nix-community/NUR";
 
   # nixpkgs.url = "git+https://hub.nuaa.cf/nixpkgs?ref=/nixos-23.11";
   inputs.home-manager.url = "git+https://hub.nuaa.cf/nix-community/home-manager";
@@ -22,36 +22,12 @@
   #   repo = "import-cargo";
   # };
 
-  # Inputs as attrsets.
-  # An indirection through the flake registry.
-  # inputs.nixpkgsIndirect = {
-  #   type = "indirect";
-  #   id = "nixpkgs";
-  # };
-
-  # Non-flake inputs. These provide a variable of type path.
-  #inputs.grcov = {
-  #  type = "github";
-  #  owner = "mozilla";
-  #  repo = "grcov";
-  #  flake = false;
-  #};
-
   # Transitive inputs can be overridden from a flake.nix file. For example, the following overrides the nixpkgs input of the nixops input:
   # inputs.nixops.inputs.nixpkgs = {
   #   type = "github";
   #   owner = "NixOS";
   #   repo = "nixpkgs";
   # };
-
-  # It is also possible to "inherit" an input from another input. This is useful to minimize
-  # flake dependencies. For example, the following sets the nixpkgs input of the top-level flake
-  # to be equal to the nixpkgs input of the nixops input of the top-level flake:
-  # inputs.nixpkgs.url = "nixpkgs";
-  # inputs.nixpkgs.follows = "nixops/nixpkgs";
-
-  # The value of the follows attribute is a sequence of input names denoting the path
-  # of inputs to be followed from the root flake. Overrides and follows can be combined, e.g.
   inputs.nixops.url = "nixops";
   inputs.dwarffs.url = "dwarffs";
   inputs.dwarffs.inputs.nixpkgs.follows = "nixpkgs";

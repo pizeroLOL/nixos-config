@@ -18,6 +18,7 @@
 
     # 聊天
     qq
+    fluffychat
     feishu
 
     # 文档
@@ -55,12 +56,17 @@
     kdePackages.yakuake
     alacritty
 
+    # 终端应用
+    zellij
+    bat
+
     # 代码编辑器
     vscode.fhs
     vscodium.fhs
     neovide
     neovim
     helix
+    zed-editor
 
     # nix
     nixd
