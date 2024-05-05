@@ -105,7 +105,19 @@
   programs.zsh.enable = true;
 
   # ssh
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    ports = [ 20022 ];
+  };
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+    };
+  };
 
   # 防火墙
   networking.firewall.allowedTCPPorts = [ 80 ];
@@ -114,7 +126,7 @@
   #networking.firewall.enable = false;
 
   # 立体机动装置
-  # services.v2raya.enable = true;
+  services.v2raya.enable = true;
 
   # 触摸板支持
   services.libinput.enable = true;
