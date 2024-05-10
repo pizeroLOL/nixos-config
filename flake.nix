@@ -5,7 +5,7 @@
   # inputs.nixpkgsGitHubBranch.url = "github:NixOS/nixpkgs/nixos-23.11";
   # inputs.nixpkgsGitHubBranch.url =
   #   "git+https://github.com/NixOS/nixpkgs?ref=nixos-23.11";
-  inputs.nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/?ref=staging-next";
+  inputs.nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/?ref=nixos-unstable";
 
   # inputs.nur.url = "github:nix-community/NUR";
 
