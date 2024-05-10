@@ -72,9 +72,9 @@
       gnome.gnome-software
 
       # MC，hm 管不好默认 jdk
-      temurin-bin-21
+      zulu
       # temurin-bin-11
-      temurin-bin-8
+      zulu8
 
       # wine
       winetricks
@@ -92,8 +92,15 @@
 
   services.flatpak.enable = true;
 
-  # 设置默认编辑器
-  environment.variables.EDITOR = "nvim";
+  # 设置默认环境变量
+  environment.variables = {
+    EDITOR = "nvim";
+
+    # 给 JAVA 擦屁股
+    JAVA8_HOME = "${pkgs.zulu8}";
+    JAVA21_HOME = "${pkgs.zulu}";
+    JAVA_HOME = "${pkgs.zulu}";
+  };
 
   # 个人密钥
   programs.gnupg.agent = {

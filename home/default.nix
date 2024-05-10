@@ -55,18 +55,18 @@
     # 终端
     kdePackages.yakuake
     alacritty
+    android-tools
 
     # 终端应用
-    zellij
-    bat
 
     # 代码编辑器
     vscode.fhs
     vscodium.fhs
-    neovide
     neovim
     helix
     zed-editor
+    jetbrains.idea-community
+    android-studio
 
     # nix
     nixd
@@ -76,6 +76,14 @@
     # python
     python3
 
+    # kotlin
+    kotlin
+    kotlin-language-server
+    gradle
+
+    # 安卓
+    android-tools
+
     # rust
     rustc
     cargo
@@ -84,6 +92,8 @@
     tree
     fzf
     eza
+    bat
+    zellij # 终端复用器
 
     # 压缩工具
     zstd
