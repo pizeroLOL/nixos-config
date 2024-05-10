@@ -126,6 +126,12 @@
     };
   };
 
+  virtualisation.virtualbox = {
+    host.enable = true;
+    host.enableExtensionPack = true;
+  };
+  users.extraGroups.vboxusers.members = [ "pizero" ];
+
   # 防火墙
   networking.firewall.allowedTCPPorts = [ 80 ];
   networking.firewall.allowedUDPPorts = [ 80 ];

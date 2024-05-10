@@ -61,11 +61,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1714430505,
-        "narHash": "sha256-SSJQ/KOy8uISnoZgqDoRha7g7PFLSFP/BtMWm0wUz8Q=",
+        "lastModified": 1715077503,
+        "narHash": "sha256-AfHQshzLQfUqk/efMtdebHaQHqVntCMjhymQzVFLes0=",
         "ref": "refs/heads/master",
-        "rev": "f8e6694edabe4aaa7a85aac47b43ea5d978b116d",
-        "revCount": 3522,
+        "rev": "6e277d9566de9976f47228dd8c580b97488734d4",
+        "revCount": 3535,
         "type": "git",
         "url": "https://hub.nuaa.cf/nix-community/home-manager"
       },
@@ -185,11 +185,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1714849000,
-        "narHash": "sha256-8BfdIEL2NHv1sUaHwQFwdxG17gKKQ4Av7WX7zUo9NAo=",
+        "lastModified": 1708232726,
+        "narHash": "sha256-DYuEHWQSBwaJkS2rjLUsKvGgDK8QIVojC3klAUw6uyk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "791e05037de5b497a23c3d8c821a4751a722547b",
+        "rev": "35c5863c29ce81199ded8a3384f4979b7793f5dc",
         "type": "github"
       },
       "original": {
@@ -201,11 +201,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1714845658,
-        "narHash": "sha256-zFXrahhXlvCfMMFI8x1dqr/oys9C4lR0NvmNEylpqwI=",
+        "lastModified": 1715256081,
+        "narHash": "sha256-XBvlTdH59hCXbPCYwfOPKkt6m+Pleey81qhPE4qWWNE=",
         "ref": "staging-next",
-        "rev": "ab898796a05c234bee29a5f8e2de1de908a42202",
-        "revCount": 621797,
+        "rev": "f496548573799b6581d86f00581a4c04a672707d",
+        "revCount": 623807,
         "type": "git",
         "url": "https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/"
       },

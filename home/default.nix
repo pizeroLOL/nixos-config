@@ -57,8 +57,6 @@
     alacritty
     android-tools
 
-    # 终端应用
-
     # 代码编辑器
     vscode.fhs
     vscodium.fhs
@@ -116,7 +114,6 @@
     kdePackages.kdenlive
 
     # 虚拟机
-    virtualbox
     virt-manager
   ];
 }
