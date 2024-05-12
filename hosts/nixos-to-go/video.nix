@@ -55,14 +55,11 @@
     # };
   };
 
-  specialisation = {
-    at-home.configuration = {
-      system.nixos.tags = [ "at-home" ];
-      hardware.nvidia.prime = {
-        sync.enable = lib.mkForce true;
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
-      };
+  specialisation.at-home.configuration = {
+    hardware.nvidia.prime = {
+      sync.enable = lib.mkForce true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
   };
 

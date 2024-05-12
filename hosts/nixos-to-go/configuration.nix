@@ -14,6 +14,20 @@
     ../../nix.nix
   ];
 
+  specialisation.at-home.configuration = {
+    system.nixos.tags = [ "at-home" ];
+    nix.settings.system-features = [
+      "nixos-test"
+      "benchmark"
+      "big-parallel"
+      "kvm"
+      "gccarch-skylake"
+      "gcctune-skylake"
+    ];
+  };
+
+  boot.supportedFilesystems = [ "ntfs" ];
+
   # 引导
   boot.loader.grub = {
     enable = true;
