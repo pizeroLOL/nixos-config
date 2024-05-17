@@ -19,7 +19,9 @@
     # 聊天
     qq
     fluffychat
-    feishu
+
+    # FIX: https://github.com/NixOS/nixpkgs/issues/311368
+    # feishu
 
     # 文档
     libreoffice-fresh
