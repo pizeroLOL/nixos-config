@@ -102,7 +102,6 @@
   #   # 桌面
   #   config.nur.repos.baduhai.koi
   # ];
-  virtualisation.waydroid.enable = true;
 
   services.flatpak.enable = true;
 
@@ -125,25 +124,32 @@
   # 系统默认 shell
   programs.zsh.enable = true;
 
+  # 支持鬼才应用
+  programs.nix-ld.enable = true;
+  programs.appimage.enable = true;
+
   # ssh
   services.openssh = {
     enable = true;
     ports = [ 20022 ];
   };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+      };
+    };
+    waydroid.enable = true;
+    virtualbox = {
+      host.enable = true;
+      host.enableExtensionPack = true;
     };
   };
 
-  virtualisation.virtualbox = {
-    host.enable = true;
-    host.enableExtensionPack = true;
-  };
   users.extraGroups.vboxusers.members = [ "pizero" ];
 
   # 防火墙
