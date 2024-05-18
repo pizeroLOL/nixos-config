@@ -51,7 +51,6 @@
     waybar
     grim
     hyprpaper
-    libsForQt5.kdeconnect-kde
     flatpak
 
     # 终端
