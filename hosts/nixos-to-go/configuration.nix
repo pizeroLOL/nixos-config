@@ -128,6 +128,9 @@
   programs.nix-ld.enable = true;
   programs.appimage.enable = true;
 
+  # 张小龙的马
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
+
   # ssh
   services.openssh = {
     enable = true;

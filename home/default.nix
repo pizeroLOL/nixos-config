@@ -18,6 +18,7 @@
 
     # 聊天
     qq
+    wechat-uos
     fluffychat
 
     # FIX: https://github.com/NixOS/nixpkgs/issues/311368
