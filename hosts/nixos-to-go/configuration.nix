@@ -126,6 +126,18 @@
   # 系统默认 shell
   programs.zsh.enable = true;
 
+  # direnv
+  programs.direnv = {
+    package = pkgs.direnv;
+    silent = false;
+    loadInNixShell = true;
+    direnvrcExtra = "";
+    nix-direnv = {
+      enable = true;
+      package = pkgs.nix-direnv;
+    };
+  };
+
   # 支持鬼才应用
   programs.nix-ld.enable = true;
   programs.appimage.enable = true;
