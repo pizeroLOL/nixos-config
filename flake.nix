@@ -9,8 +9,8 @@
 
   # inputs.nur.url = "github:nix-community/NUR";
 
-  # nixpkgs.url = "git+https://hub.nuaa.cf/nixpkgs?ref=/nixos-23.11";
-  inputs.home-manager.url = "git+https://hub.nuaa.cf/nix-community/home-manager";
+  # nixpkgs.url = "git+https://kkgithub.com/nixpkgs?ref=/nixos-23.11";
+  inputs.home-manager.url = "git+https://kkgithub.com/nix-community/home-manager";
   # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   # inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -58,7 +58,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.pizero = import ./home/default.nix;
-            home-manager.backupFileExtension = "backup";
+            home-manager.backupFileExtension = "bku";
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }

@@ -86,6 +86,8 @@
 
     # rust
     rustc
+    rustfmt
+    rust-analyzer
     cargo
 
     # cmd
