@@ -128,14 +128,11 @@
 
   # direnv
   programs.direnv = {
-    package = pkgs.direnv;
-    silent = false;
+    enable = true;
+    silent = true;
     loadInNixShell = true;
     direnvrcExtra = "";
-    nix-direnv = {
-      enable = true;
-      package = pkgs.nix-direnv;
-    };
+    nix-direnv.enable = true;
   };
 
   # 支持鬼才应用
