@@ -38,7 +38,6 @@
 
     # 游戏
     hmcl
-    steam
 
     # 性能监看
     btop

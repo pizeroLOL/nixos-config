@@ -139,6 +139,15 @@
   programs.nix-ld.enable = true;
   programs.appimage.enable = true;
 
+  # TODO: 中文字体无法使用
+  programs.steam = {
+    enable = true;
+    # extest.enable = true;
+    remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   # 张小龙的马
   nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 

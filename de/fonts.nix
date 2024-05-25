@@ -23,17 +23,14 @@
       "JetBrains Mono"
       "Noto Sans Mono CJK SC"
       "Sarasa Mono SC"
-      "DejaVu Sans Mono"
     ];
     sansSerif = [
       "Noto Sans CJK SC"
-      "Source Han Sans SC"
-      "DejaVu Sans"
+      # "Source Han Sans SC"
     ];
     serif = [
       "Noto Serif CJK SC"
-      "Source Han Serif SC"
-      "DejaVu Serif"
+      # "Source Han Serif SC"
     ];
   };
 }
