@@ -20,6 +20,7 @@
     qq
     wechat-uos
     fluffychat
+    thunderbird-bin-unwrapped
 
     # FIX: https://github.com/NixOS/nixpkgs/issues/311368
     # feishu
