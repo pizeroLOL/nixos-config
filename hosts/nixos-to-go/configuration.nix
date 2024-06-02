@@ -53,6 +53,12 @@
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
 
+  hardware.bluetooth = {
+    powerOnBoot = true;
+    enable = true;
+  };
+  services.blueman.enable = true;
+
   services.displayManager.sddm = {
     enable = true;
     wayland = {
@@ -68,6 +74,8 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
+
+  services.displayManager.autoLogin.user = "pizero";
 
   # 系统软件包
   environment.systemPackages = (
@@ -86,6 +94,7 @@
       trash-cli
       flatpak
       gnome.gnome-software
+      rustdesk
 
       # MC，hm 管不好默认 jdk
       zulu
@@ -192,5 +201,8 @@
 
   # 声音
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+  };
 }
