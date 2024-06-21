@@ -8,7 +8,13 @@
       "https://mirrors.cernet.edu.cn/nix-channels/store"
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://mirror.sjtu.edu.cn/nix-channels/store"
+      # cosmic
+      "https://cosmic.cachix.org/"
     ];
+
+    # cosmic
+    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+
     # 实验性功能
     experimental-features = [
       "nix-command"

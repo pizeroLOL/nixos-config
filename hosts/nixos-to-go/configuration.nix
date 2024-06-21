@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ./video.nix
     ./language.nix
+    ../../de/cosmic.nix
     ../../de/hyprland.nix
     ../../de/plasma.nix
     ../../de/fonts.nix
@@ -210,8 +211,8 @@
 
   # 声音
   sound.enable = true;
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-  };
+  #hardware.pulseaudio = {
+  #  enable = true;
+  #  package = pkgs.pulseaudioFull;
+  #};
 }

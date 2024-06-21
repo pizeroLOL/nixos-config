@@ -5,6 +5,10 @@
   inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.nixos-cosmic = {
+    url = "github:lilyinstarlight/nixos-cosmic";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   # inputs.nixops.url = "nixops";
   # inputs.dwarffs.url = "dwarffs";
   # inputs.dwarffs.inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +17,7 @@
     all@{
       # nur,
       nixpkgs,
+      nixos-cosmic,
       home-manager,
       ...
     }:
@@ -23,6 +28,7 @@
         system = "x86_64-linux";
         modules = [
           # nur.nixosModules.nur
+          nixos-cosmic.nixosModules.default
           ./hosts/nixos-to-go/configuration.nix
           home-manager.nixosModules.home-manager
           {
