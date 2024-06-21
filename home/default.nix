@@ -85,10 +85,7 @@
     android-tools
 
     # rust
-    rustc
-    rustfmt
-    rust-analyzer
-    cargo
+    rustup
 
     # cmd
     tree

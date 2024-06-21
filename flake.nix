@@ -2,7 +2,7 @@
   description = "Pizero's NixOS Flake";
 
   inputs.nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/?ref=nixos-unstable";
-  inputs.home-manager.url = "git+https://kkgithub.com/nix-community/home-manager";
+  inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
   # inputs.nixops.url = "nixops";
