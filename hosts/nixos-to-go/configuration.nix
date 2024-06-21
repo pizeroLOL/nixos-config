@@ -28,6 +28,7 @@
     ];
   };
 
+  boot.kernelParams = [ "i915.enable_guc=2" ];
   boot.supportedFilesystems = [ "ntfs" ];
 
   # 引导
@@ -104,6 +105,8 @@
       # wine
       winetricks
       wineWowPackages.staging
+      vkd3d
+      dxvk
     ]
   );
   # ++ [
@@ -179,6 +182,12 @@
     virtualbox = {
       host.enable = true;
       host.enableExtensionPack = true;
+    };
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
   };
 
