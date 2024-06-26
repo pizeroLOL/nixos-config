@@ -1,17 +1,30 @@
 {
   description = "Pizero's NixOS Flake";
 
-  inputs.nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/?ref=nixos-unstable";
-  inputs.home-manager.url = "github:nix-community/home-manager";
-  inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  inputs = {
+    # os
+    nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git/?ref=nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-  inputs.nixos-cosmic = {
-    url = "github:lilyinstarlight/nixos-cosmic";
-    inputs.nixpkgs.follows = "nixpkgs";
+    # nix-on-droid
+    home-manager-stable = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/testing";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
-  # inputs.nixops.url = "nixops";
-  # inputs.dwarffs.url = "dwarffs";
-  # inputs.dwarffs.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs =
     all@{
@@ -19,6 +32,9 @@
       nixpkgs,
       nixos-cosmic,
       home-manager,
+      nixpkgs-stable,
+      nix-on-droid,
+      home-manager-stable,
       ...
     }:
     {
@@ -34,12 +50,32 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.pizero = import ./home/default.nix;
+            home-manager.users.pizero = import ./home/nixos-to-go.nix;
             home-manager.backupFileExtension = "bku";
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
           }
         ];
+      };
+
+      nixOnDroidConfigurations.pizero-phone = nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import nixpkgs-stable {
+          system = "aarch64-linux";
+          overlays = [
+            nix-on-droid.overlays.default
+            # add other overlays
+          ];
+        };
+
+        modules = [
+          ./host/nix-on-droid/default.nix
+          {
+            home-manager = {
+              backupFileExtension = "hm-bak";
+              useGlobalPkgs = true;
+              config = ./home/nix-on-droid.nix;
+            };
+          }
+        ];
+        home-manager-path = home-manager-stable.outPath;
       };
     };
 }

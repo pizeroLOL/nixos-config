@@ -1,6 +1,6 @@
 # 个人使用 nixos 的配置文件
 
-## 使用教程
+## Nix OS 使用教程
 
 1. 挂载磁盘到 `/mnt`
 2. `nixos-generate-config --root /mnt`

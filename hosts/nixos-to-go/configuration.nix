@@ -8,11 +8,11 @@
     ./hardware-configuration.nix
     ./video.nix
     ./language.nix
+    ./nix.nix
     ../../de/cosmic.nix
     ../../de/hyprland.nix
     ../../de/plasma.nix
     ../../de/fonts.nix
-    ../../nix.nix
   ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
@@ -80,9 +80,8 @@
   services.displayManager.autoLogin.user = "pizero";
 
   # 系统软件包
-  environment.systemPackages = (
-    with pkgs;
-    [
+  environment.systemPackages =
+    (with pkgs; [
       neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
       curl
@@ -108,8 +107,8 @@
       wineWowPackages.staging
       vkd3d
       dxvk
-    ]
-  );
+    ])
+    ++ import ../../tools/compress.nix { inherit pkgs; };
   # ++ [
   #   # 聊天
   #   config.nur.repos.xddxdd.wechat-uos
