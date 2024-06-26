@@ -66,7 +66,7 @@
         };
 
         modules = [
-          ./host/nix-on-droid/default.nix
+          ./hosts/nix-on-droid/default.nix
           {
             home-manager = {
               backupFileExtension = "hm-bak";
