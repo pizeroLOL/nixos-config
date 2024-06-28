@@ -51,13 +51,11 @@
           insert = "bar";
           normal = "block";
           select = "underline";
-
         };
         indent-guides = {
           render = true;
           character = "╎"; # Some characters that work well: "▏", "┆", "┊", "⸽"
           skip-levels = 1;
-
         };
       };
     };

@@ -16,13 +16,13 @@
     # nix-on-droid
     home-manager-stable = {
       url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/testing";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.home-manager.follows = "home-manager-stable";
     };
   };
 

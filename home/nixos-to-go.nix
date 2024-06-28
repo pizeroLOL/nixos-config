@@ -5,9 +5,7 @@
   ...
 }:
 {
-  imports = [
-    ./settings/helix.nix
-  ];
+  imports = [ ./settings/helix.nix ];
 
   programs.home-manager.enable = true;
   home.username = "pizero";
