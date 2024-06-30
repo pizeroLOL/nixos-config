@@ -1,6 +1,9 @@
 { pkgs }:
 with pkgs;
 [
-  python3
+  python312
+  pyright
+  ruff
+  ruff-lsp
   uv
 ]

@@ -6,7 +6,10 @@
       language-server = {
         nix-lsp = {
           command = "nixd";
+          except-features = [ "format" ];
         };
+        rust-analyzer.config.check = "clippy";
+        ruff.command = "ruff-lsp";
       };
       language = [
         {
@@ -19,6 +22,10 @@
           formatter = {
             command = "nixfmt";
           };
+        }
+        {
+          name = "python";
+          language-servers = [ "pyright" "ruff" ];
         }
       ];
     };
