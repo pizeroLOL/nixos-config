@@ -25,7 +25,11 @@
         }
         {
           name = "python";
-          language-servers = [ "pyright" "ruff" ];
+          language-servers = [
+            "pylsp"
+            "pyright"
+            "ruff"
+          ];
         }
       ];
     };

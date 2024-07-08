@@ -57,7 +57,11 @@
 
   specialisation.at-home.configuration = {
     hardware.nvidia.prime = {
-      sync.enable = lib.mkForce true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      # sync.enable = lib.mkForce true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };

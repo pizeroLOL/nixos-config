@@ -18,6 +18,7 @@
     ++ import ./dev/nix.nix { inherit pkgs; }
     ++ import ./dev/python.nix { inherit pkgs; }
     ++ import ./dev/rust.nix { inherit pkgs; };
+
   home.file."./.config/sshd/sshd.cfg".text = ''
     HostKey /data/data/com.termux.nix/files/home/.ssh/id_ed25519
     Port 20022
