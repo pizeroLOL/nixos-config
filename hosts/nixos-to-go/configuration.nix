@@ -150,6 +150,10 @@
       libkrb5
 
       lm_sensors
+
+      fd
+      ripgrep-all
+      fzf
     ])
     ++ import ../../tools/compress.nix { inherit pkgs; };
   # ++ [
@@ -237,8 +241,18 @@
   users.extraGroups.vboxusers.members = [ "pizero" ];
 
   # 防火墙
-  networking.firewall.allowedTCPPorts = [ 80 ];
-  networking.firewall.allowedUDPPorts = [ 80 ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    8080
+    8000
+    5173
+  ];
+  networking.firewall.allowedUDPPorts = [
+    80
+    8080
+    8000
+    5173
+  ];
   # Or disable the firewall altogether.
   #networking.firewall.enable = false;
 

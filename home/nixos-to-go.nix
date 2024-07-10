@@ -22,9 +22,8 @@
       wechat-uos
       fluffychat
       thunderbird-bin-unwrapped
-
-      # FIX: https://github.com/NixOS/nixpkgs/issues/311368
-      # feishu
+      fractal
+      feishu
 
       # 文档
       libreoffice-fresh
@@ -36,7 +35,8 @@
       gImageReader
 
       # 建模
-      blender
+      # FIX: https://github.com/NixOS/nixpkgs/pull/326044
+      # blender
 
       # 游戏
       hmcl
@@ -78,6 +78,7 @@
       eza
       bat
       zellij # 终端复用器
+      gitui
 
       # 网络工具
       iperf3
@@ -98,5 +99,6 @@
     ++ import ./dev/nix.nix { inherit pkgs; }
     ++ import ./dev/python.nix { inherit pkgs; }
     ++ import ./dev/kotlin.nix { inherit pkgs; }
-    ++ import ./dev/rust.nix { inherit pkgs; };
+    ++ import ./dev/rust.nix { inherit pkgs; }
+    ++ import ./dev/frontend.nix { inherit pkgs; };
 }

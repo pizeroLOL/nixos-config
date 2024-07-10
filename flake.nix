@@ -49,10 +49,12 @@
           ./hosts/nixos-to-go/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.pizero = import ./home/nixos-to-go.nix;
-            home-manager.backupFileExtension = "bku";
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.pizero = import ./home/nixos-to-go.nix;
+              backupFileExtension = "bku";
+            };
           }
         ];
       };
