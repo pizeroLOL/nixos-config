@@ -23,8 +23,7 @@
       fluffychat
       thunderbird-bin-unwrapped
 
-      # FIX: https://github.com/NixOS/nixpkgs/issues/311368
-      # feishu
+      feishu
 
       # 文档
       libreoffice-fresh
@@ -36,7 +35,8 @@
       gImageReader
 
       # 建模
-      blender
+      # FIX: https://github.com/NixOS/nixpkgs/pull/326044
+      # blender
 
       # 游戏
       hmcl
