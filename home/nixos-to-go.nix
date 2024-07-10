@@ -98,5 +98,6 @@
     ++ import ./dev/nix.nix { inherit pkgs; }
     ++ import ./dev/python.nix { inherit pkgs; }
     ++ import ./dev/kotlin.nix { inherit pkgs; }
-    ++ import ./dev/rust.nix { inherit pkgs; };
+    ++ import ./dev/rust.nix { inherit pkgs; }
+    ++ import ./dev/frontend.nix { inherit pkgs; };
 }
