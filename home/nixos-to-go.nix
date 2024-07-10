@@ -22,7 +22,7 @@
       wechat-uos
       fluffychat
       thunderbird-bin-unwrapped
-
+      fractal
       feishu
 
       # 文档
@@ -78,6 +78,7 @@
       eza
       bat
       zellij # 终端复用器
+      gitui
 
       # 网络工具
       iperf3
