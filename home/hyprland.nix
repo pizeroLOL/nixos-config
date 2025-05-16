@@ -1,30 +1,42 @@
 {
-  #pkgs,
+  pkgs,
   ...
 }:
 {
-  # wayland.windowManager.hyprland.enable = true;
-  # home.pointerCursor = {
-  #   gtk.enable = true;
-  #   # x11.enable = true;
-  #   size = 16;
-  # };
-
-  # gtk = {
+  # wayland.windowManager.hyprland = {
   #   enable = true;
-  #   theme = {
-  #     package = pkgs.kdePackages.breeze-gtk;
-  #     name = "Breeze";
-  #   };
+  #   settings = {
 
-  #   iconTheme = {
-  #     package = pkgs.kdePackages.breeze-icons;
-  #     name = "Breeze";
-  #   };
-
-  #   font = {
-  #     name = "Noto Sans CJK SC";
-  #     size = 12;
   #   };
   # };
+  home.pointerCursor = {
+    gtk.enable = true;
+    # x11.enable = true;
+    # package =
+    size = 16;
+  };
+
+  gtk = {
+    enable = true;
+    # theme = {
+    #   package = pkgs.kdePackages.breeze-gtk;
+    #   name = "Breeze";
+    # };
+
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+
+    font = {
+      name = "Noto Sans CJK SC";
+      size = 16;
+    };
+  };
+
+  qt = {
+    enable = true;
+    style = "adwaita";
+    platformTheme = "qt5ct";
+  };
 }

@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   # 桌面
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   # polkit-gnome 用于让桌面应用获取 sudo 权限
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
@@ -18,9 +21,9 @@
     };
   };
 
-  qt = {
-    enable = true;
-    # platformTheme = "qt5ct";
-    style = "breeze";
-  };
+  # qt = {
+  #   enable = true;
+  #   # platformTheme = "qt5ct";
+  #   style = "breeze";
+  # };
 }

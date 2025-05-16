@@ -9,25 +9,25 @@
     ./video.nix
     ./language.nix
     ./nix.nix
-    ../../de/cosmic.nix
+    # ../../de/cosmic.nix
     ../../de/hyprland.nix
     ../../de/plasma.nix
     ../../de/fonts.nix
   ];
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
-  specialisation.at-home.configuration = {
-    system.nixos.tags = [ "at-home" ];
-    nix.settings.system-features = [
-      "nixos-test"
-      "benchmark"
-      "big-parallel"
-      "kvm"
-      "gccarch-skylake"
-      "gcctune-skylake"
-    ];
-  };
+  # specialisation.at-home.configuration = {
+  #   system.nixos.tags = [ "at-home" ];
+  #   # nix.settings.system-features = [
+  #   #   "nixos-test"
+  #   #   "benchmark"
+  #   #   "big-parallel"
+  #   #   "kvm"
+  #   #   "gccarch-skylake"
+  #   #   "gcctune-skylake"
+  #   # ];
+  # };
 
   boot.kernelParams = [ "i915.enable_guc=2" ];
   boot.supportedFilesystems = [ "ntfs" ];
@@ -43,7 +43,7 @@
   boot.plymouth = {
     enable = true;
     # extraConfig = with pkgs; [ kdePackages.breeze-plymouth ];
-    theme = "breeze";
+    #theme = "breeze";
   };
 
   # services.auto-cpufreq.enable = true;
@@ -98,14 +98,20 @@
   };
   services.blueman.enable = true;
 
-  services.displayManager.sddm = {
+  services.xserver.displayManager.gdm = {
     enable = true;
-    wayland = {
-      enable = true;
-      compositor = "kwin";
-    };
-    autoNumlock = true;
+    wayland = true;
   };
+  services.displayManager.autoLogin.user = "pizero";
+
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland = {
+  #     enable = true;
+  #     compositor = "kwin";
+  #   };
+  #   autoNumlock = true;
+  # };
 
   # 用户，别忘了设置密码
   users.users.pizero = {
@@ -113,8 +119,6 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
-
-  services.displayManager.autoLogin.user = "pizero";
 
   # 系统软件包
   environment.systemPackages =
@@ -131,7 +135,7 @@
       libsForQt5.qt5ct
       trash-cli
       flatpak
-      gnome.gnome-software
+      # gnome.gnome-software
       rustdesk
 
       # MC，hm 管不好默认 jdk
@@ -241,19 +245,23 @@
   users.extraGroups.vboxusers.members = [ "pizero" ];
 
   # 防火墙
-  networking.firewall.allowedTCPPorts = [
-    80
-    8080
-    8000
-    5173
-  ];
-  networking.firewall.allowedUDPPorts = [
-    80
-    8080
-    8000
-    5173
-  ];
-  # Or disable the firewall altogether.
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        80
+        8080
+        8000
+        5173
+      ];
+      allowedUDPPorts = [
+        80
+        8080
+        8000
+        5173
+      ];
+    };
+  };
   #networking.firewall.enable = false;
 
   # 立体机动装置
@@ -266,7 +274,7 @@
   services.printing.enable = true;
 
   # 声音
-  sound.enable = true;
+  # sound.enable = true;
   #hardware.pulseaudio = {
   #  enable = true;
   #  package = pkgs.pulseaudioFull;

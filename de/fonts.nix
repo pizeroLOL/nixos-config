@@ -3,11 +3,14 @@
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
     noto-fonts-emoji-blob-bin
     # source-han-sans
     # source-han-serif
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    # fira-code-nerdfont
+    # (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerd-fonts.fira-code
     sarasa-gothic # 更纱黑体
     source-code-pro
     hack-font

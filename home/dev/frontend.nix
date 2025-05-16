@@ -2,7 +2,8 @@
 with pkgs;
 [
   bun
-  nodejs_20
+  nodejs_22
+  pnpm_10
   nodePackages.eslint
   nodePackages.prettier
   nodePackages.typescript-language-server

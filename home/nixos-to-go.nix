@@ -20,8 +20,8 @@
       # 聊天
       qq
       wechat-uos
-      fluffychat
-      thunderbird-bin-unwrapped
+      # fluffychat
+      # thunderbird-bin-unwrapped
       fractal
       feishu
 
@@ -49,20 +49,23 @@
       nvitop
 
       # 桌面
-      rofi-wayland
+      wofi
+      ghostty
+      # zen-browser
+      # rofi-wayland
       waybar
       grim
       hyprpaper
       flatpak
 
       # 终端
-      kdePackages.yakuake
-      alacritty
+      # kdePackages.yakuake
+      # alacritty
       android-tools
 
       # 代码编辑器
-      vscode.fhs
-      vscodium.fhs
+      #vscode.fhs
+      #vscodium.fhs
       neovim
       helix
       zed-editor
@@ -79,6 +82,7 @@
       bat
       zellij # 终端复用器
       gitui
+      yazi
 
       # 网络工具
       iperf3
