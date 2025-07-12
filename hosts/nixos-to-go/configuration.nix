@@ -17,46 +17,18 @@
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  # specialisation.at-home.configuration = {
-  #   system.nixos.tags = [ "at-home" ];
-  #   # nix.settings.system-features = [
-  #   #   "nixos-test"
-  #   #   "benchmark"
-  #   #   "big-parallel"
-  #   #   "kvm"
-  #   #   "gccarch-skylake"
-  #   #   "gcctune-skylake"
-  #   # ];
-  # };
-
-  boot.kernelParams = [ "i915.enable_guc=2" ];
   boot.supportedFilesystems = [ "ntfs" ];
 
   # 引导
-  boot.loader.grub = {
+  boot.loader.limine = {
     enable = true;
-    device = "nodev";
-    efiSupport = true;
-    efiInstallAsRemovable = true;
+    secureBoot.enable = true;
   };
 
   boot.plymouth = {
     enable = true;
-    # extraConfig = with pkgs; [ kdePackages.breeze-plymouth ];
-    #theme = "breeze";
   };
 
-  # services.auto-cpufreq.enable = true;
-  # services.auto-cpufreq.settings = {
-  #   battery = {
-  #     governor = "performance";
-  #     turbo = "auto";
-  #   };
-  #   charger = {
-  #     governor = "performance";
-  #     turbo = "auto";
-  #   };
-  # };
   services.tlp = {
     enable = true;
     settings = {
@@ -104,15 +76,6 @@
   };
   services.displayManager.autoLogin.user = "pizero";
 
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   wayland = {
-  #     enable = true;
-  #     compositor = "kwin";
-  #   };
-  #   autoNumlock = true;
-  # };
-
   # 用户，别忘了设置密码
   users.users.pizero = {
     isNormalUser = true;
@@ -123,7 +86,7 @@
   # 系统软件包
   environment.systemPackages =
     (with pkgs; [
-      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      helix # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
       curl
       btrfs-progs
@@ -158,26 +121,26 @@
       fd
       ripgrep-all
       fzf
+
+      # nvidia
+      cudatoolkit
+      cudaPackages.cudnn
     ])
     ++ import ../../tools/compress.nix { inherit pkgs; };
-  # ++ [
-  #   # 聊天
-  #   config.nur.repos.xddxdd.wechat-uos
-
-  #   # 桌面
-  #   config.nur.repos.baduhai.koi
-  # ];
 
   services.flatpak.enable = true;
 
   # 设置默认环境变量
   environment.variables = {
-    EDITOR = "nvim";
+    EDITOR = "helix";
 
     # 给 JAVA 擦屁股
     JAVA8_HOME = "${pkgs.zulu8}";
     JAVA21_HOME = "${pkgs.zulu}";
     JAVA_HOME = "${pkgs.zulu}";
+    
+    # CUDA
+    CUDA_PATH = "${pkgs.cudatoolkit}";
   };
 
   # 个人密钥
@@ -212,7 +175,7 @@
   };
 
   # 张小龙的马
-  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
+  # nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
   # ssh
   services.openssh = {
@@ -272,11 +235,4 @@
 
   # 打印机
   services.printing.enable = true;
-
-  # 声音
-  # sound.enable = true;
-  #hardware.pulseaudio = {
-  #  enable = true;
-  #  package = pkgs.pulseaudioFull;
-  #};
 }

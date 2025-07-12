@@ -20,7 +20,7 @@
       # 聊天
       qq
       wechat-uos
-      # fluffychat
+      fluffychat
       # thunderbird-bin-unwrapped
       fractal
       feishu
@@ -36,7 +36,7 @@
 
       # 建模
       # FIX: https://github.com/NixOS/nixpkgs/pull/326044
-      # blender
+      blender
 
       # 游戏
       hmcl
@@ -60,7 +60,7 @@
 
       # 终端
       # kdePackages.yakuake
-      # alacritty
+      alacritty
       android-tools
 
       # 代码编辑器
